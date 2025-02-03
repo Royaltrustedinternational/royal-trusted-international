@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Track your shipments easily with Royal Trusted International. Get real-time updates on your package status.">
+    <meta name="keywords" content="Royal Trusted International, Package Tracking, Shipment Status, Logistics, Delivery">
+    <meta name="author" content="Royal Trusted International">
+    <title>Royal Trusted International - Track Your Package</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            padding: 50px;
+        }
+        h1 {
+            color: #2b4c7e;
+        }
+        input, button {
+            padding: 10px;
+            margin: 10px;
+            width: 300px;
+            font-size: 16px;
+        }
+        button {
+            background-color: #2b4c7e;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .status {
+            margin-top: 20px;
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Royal Trusted International</h1>
+    <h2>Track Your Package</h2>
+
+    <!-- Input field for tracking number -->
+    <input type="text" id="trackingNumber" placeholder="Enter Tracking Number">
+    <button onclick="trackPackage()">Track</button>
+
+    <h3>Or</h3>
+
+    <!-- Button to generate a fake tracking number -->
+    <button onclick="generateTrackingNumber()">Generate Fake Tracking Number</button>
+
+    <!-- Display tracking status -->
+    <div class="status" id="status">
+        <h3>Tracking Number: <span id="trackNum"></span></h3>
+        <p>Status: <span id="currentStatus">In Transit - Frankfurt, Germany</span></p>
+        <p>Estimated Delivery: <span id="deliveryDate">3-5 Business Days</span></p>
+    </div>
+
+    <script>
+        // Function to track a manually entered package
+        function trackPackage() {
+            const trackingNumber = document.getElementById('trackingNumber').value;
+            if (trackingNumber) {
+                document.getElementById('trackNum').innerText = trackingNumber;
+                document.getElementById('status').style.display = 'block';
+            }
+        }
+
+        // Function to generate a fake tracking number
+        function generateTrackingNumber() {
+            const prefix = "RTI";
+            const randomNum = Math.floor(100000000 + Math.random() * 900000000);
+            const suffix = "FR";
+            const fakeTrackingNumber = `${prefix}${randomNum}${suffix}`;
+
+            document.getElementById('trackingNumber').value = fakeTrackingNumber;
+            trackPackage();
+        }
+    </script>
+
+</body>
+</html>
