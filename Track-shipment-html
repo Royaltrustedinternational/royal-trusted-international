@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Royal Trusted International</title>
+</head>
+<body>
+    <header>
+        <h1>Welcome to Royal Trusted International</h1>
+    </header>
+    
+    <!-- Tracking Section -->
+    <section>
+        <h2>Track Your Shipment</h2>
+        <p>Enter your shipment ID below:</p>
+        <input type="text" id="shipmentId" placeholder="Enter Shipment ID">
+        <button onclick="generateTracking()">Generate Tracking Number</button>
+        
+        <h2>Tracking Number:</h2>
+        <p id="trackingNumber"></p>
+    </section>
+
+    <script>
+        function generateTracking() {
+            let shipmentId = document.getElementById("shipmentId").value;
+            if (!shipmentId) {
+                alert("Please enter a shipment ID.");
+                return;
+            }
+
+            // Generate a fake tracking number
+            let trackingNumber = "RTI-" + Math.floor(Math.random() * 1000000000).toString().padStart(10, '0');
+            document.getElementById("trackingNumber").innerText = trackingNumber;
+        }
+    </script>
+</body>
+</html>
